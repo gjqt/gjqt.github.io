@@ -1,4 +1,4 @@
-function HTMLActuator() {
+﻿function HTMLActuator() {
   this.tileContainer    = document.querySelector(".tile-container");
   this.scoreContainer   = document.querySelector(".score-container");
   this.bestContainer    = document.querySelector(".best-container");
@@ -67,10 +67,10 @@ HTMLActuator.prototype.addTile = function (tile) {
   text[11] = "蛊雕";
   text[12] = "巫姑";
   text[13] = "紫胤<br>真人";
-  text[14] = "穷奇";
-  text[15] = "饕餮";
-  text[16] = "暗云<br>奔霄";
-  text[17] = "欧阳<br>少恭";
+  text[14] = "饕餮";
+  text[15] = "暗云<br>奔霄";
+  text[16] = "欧阳<br>少恭";
+  text[17] = "九霄<br>环佩";
   var self = this;
   var text2 = function (n) { var r = 0; while (n > 1) r++, n >>= 1; return r; }
 
@@ -154,23 +154,23 @@ HTMLActuator.prototype.message = function (won) {
   mytxt[0]="凡人，找死！";
   mytxt[1]="晋磊！拿命来！";
   mytxt[2]="少恭，你还嫩了点！";
-  mytxt[3]="说了要一起上吧！";
-  mytxt[4]="请无异来帮忙吧！";
+  mytxt[3]="我很黄！我很暴力！";
+  mytxt[4]="无异，快把你家馋鸡带走！";
   mytxt[5]="吾友，你弱了！";
   mytxt[6]="我甩发，我自信！";
-  mytxt[7]="太弱了！";
-  mytxt[8]="凡人，自寻死路！";
-  mytxt[9]="你们还差了点！";
+  mytxt[7]="擅闯青玉坛者死！";
+  mytxt[8]="擅闯幽都者死！";
+  mytxt[9]="你还是乖乖留在幽都吧！";
   mytxt[10]="徒儿，随为师回山！";
   mytxt[11]="神兽果然勇猛！";
-  mytxt[12]="真是美味啊！";
-  mytxt[13]="你见不到少恭了！→_→";
+  mytxt[12]="凡人的肉真好吃！";
+  mytxt[13]="挣扎吧，在血和暗的深渊里！";
 
 
 
   var text3 = function (m) { var r = 0; while (m > 1) r++, m >>= 1; return r; }
   var type    = won ? "game-won" : "game-over";
-  var message = won ? "你打败了<strong>欧阳少恭！</strong>" : mytxt[text3(maxscore)-3];
+  var message = won ? "恭喜你打败了<strong>欧阳少恭！</strong>" : mytxt[text3(maxscore)-3];
 
   if (typeof ga !== "undefined") {
     ga("send", "event", "game", "end", type, this.score);
@@ -191,17 +191,11 @@ HTMLActuator.prototype.clearMessage = function () {
 };
 
 HTMLActuator.prototype.scoreTweetButton = function () {
+  var text = "我在2048古剑版中得了" + this.score + "分 , 你能得多少分？";
   var tweet = document.createElement("a");
   tweet.classList.add("twitter-share-button");
-  tweet.setAttribute("href", "http://service.weibo.com/share/share.php");
-  tweet.setAttribute("data-via", "拔剑断愁");
-  tweet.setAttribute("data-url", "http://gjqt.github.io");
-  tweet.setAttribute("data-counturl", "http://gjqt.github.io");
-  tweet.textContent = "炫耀一下";
-
-  var text = "I scored " + this.score + " points at 2048古剑版, a game where you " +
-             "join numbers to score high! #2048古剑版";
-  tweet.setAttribute("data-text", text);
+  tweet.setAttribute("href", "http://service.weibo.com/share/share.php?url=http://gjqt.github.io/mainRole&title="+text); 
+  tweet.textContent = "分享到微博"; 
 
   return tweet;
 };
