@@ -199,8 +199,8 @@ HTMLActuator.prototype.scoreTweetButton = function () {
   tweet.setAttribute("data-counturl", "http://gjqt.github.io");
   tweet.textContent = "炫耀一下";
 
-  var text = "I scored " + this.score + " points at PRC2048-Full edition, a game where you " +
-             "join numbers to score high! #PRC2048";
+  var text = "I scored " + this.score + " points at 2048古剑版, a game where you " +
+             "join numbers to score high! #2048古剑版";
   tweet.setAttribute("data-text", text);
 
   return tweet;
