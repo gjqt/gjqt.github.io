@@ -70,7 +70,7 @@ HTMLActuator.prototype.addTile = function (tile) {
   text[14] = "饕餮";
   text[15] = "暗云<br>奔霄";
   text[16] = "欧阳<br>少恭";
-  text[17] = "九霄<br>环佩";
+  text[17] = "九霄<br>环佩琴";
   var self = this;
   var text2 = function (n) { var r = 0; while (n > 1) r++, n >>= 1; return r; }
 
@@ -165,8 +165,6 @@ HTMLActuator.prototype.message = function (won) {
   mytxt[11]="神兽果然勇猛！";
   mytxt[12]="凡人的肉真好吃！";
   mytxt[13]="挣扎吧，在血和暗的深渊里！";
-
-
 
   var text3 = function (m) { var r = 0; while (m > 1) r++, m >>= 1; return r; }
   var type    = won ? "game-won" : "game-over";
