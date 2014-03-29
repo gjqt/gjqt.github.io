@@ -67,10 +67,9 @@ HTMLActuator.prototype.addTile = function (tile) {
   text[11] = "蛊雕";
   text[12] = "巫姑";
   text[13] = "紫胤<br>真人";
-  text[14] = "饕餮";
-  text[15] = "暗云<br>奔霄";
-  text[16] = "欧阳<br>少恭";
-  text[17] = "九霄<br>环佩琴";
+  text[14] = "暗云<br>奔霄";
+  text[15] = "欧阳<br>少恭";
+  text[16] = "九霄<br>环佩琴";
   var self = this;
   var text2 = function (n) { var r = 0; while (n > 1) r++, n >>= 1; return r; }
 
@@ -82,7 +81,7 @@ HTMLActuator.prototype.addTile = function (tile) {
   // We can't use classlist because it somehow glitches when replacing classes
   var classes = ["tile", "tile-" + tile.value, positionClass];
 
-  if (tile.value > 131072) classes.push("tile-super");
+  if (tile.value > 65536) classes.push("tile-super");
 
   this.applyClasses(wrapper, classes);
 
@@ -151,7 +150,7 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 
 HTMLActuator.prototype.message = function (won) {
   var mytxt=new Array(14);
-  mytxt[0]="凡人，找死！";
+  mytxt[0]="小子，那些人值得你为他们卖命吗？";
   mytxt[1]="晋磊！拿命来！";
   mytxt[2]="少恭，你还嫩了点！";
   mytxt[3]="我很黄！我很暴力！";
@@ -162,13 +161,12 @@ HTMLActuator.prototype.message = function (won) {
   mytxt[8]="擅闯幽都者死！";
   mytxt[9]="你还是乖乖留在幽都吧！";
   mytxt[10]="徒儿，随为师回山！";
-  mytxt[11]="神兽果然勇猛！";
-  mytxt[12]="凡人的肉真好吃！";
-  mytxt[13]="挣扎吧，在血和暗的深渊里！";
+  mytxt[11]="挣扎吧，在血和暗的深渊里！";
+  mytxt[12]="我要把你们全部化为焦冥……";
 
   var text3 = function (m) { var r = 0; while (m > 1) r++, m >>= 1; return r; }
   var type    = won ? "game-won" : "game-over";
-  var message = won ? "恭喜你打败了<strong>欧阳少恭！</strong>" : mytxt[text3(maxscore)-3];
+  var message = won ? "恭喜你打败了欧阳少恭！" : mytxt[text3(maxscore)-3];
 
   if (typeof ga !== "undefined") {
     ga("send", "event", "game", "end", type, this.score);

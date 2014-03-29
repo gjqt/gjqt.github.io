@@ -426,7 +426,7 @@ hr {
   .tile.tile-16384 .tile-inner {
     background: #ffedb4;
     font-size:1.5em;
-    line-height:80px;
+    line-height:40px;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333); }
   .tile.tile-32768 .tile-inner {
     background: #fff1c4;
@@ -435,15 +435,9 @@ hr {
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333); }
   .tile.tile-65536 .tile-inner {
     color: #f9f6f2;
-    font-size:1.5em;
+    font-size:1.3em;
     line-height:40px;
     background: #fff1c4;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333); }
-  .tile.tile-131072 .tile-inner {
-    color: #f9f6f2;
-    background: #fff1c4;
-    font-size:1.3em;
-    line-height:20px;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333); }
   .tile.tile-super .tile-inner {
     color: #f9f6f2;
@@ -504,10 +498,6 @@ hr {
 	@media screen and (max-width: 520px) {
       .tile.tile-65536 .tile-inner {
         font-size: 20px;
-        line-height:24px; } }
-	@media screen and (max-width: 520px) {
-      .tile.tile-131072 .tile-inner {
-        font-size: 15px;
         line-height:24px; } }
 
 @-webkit-keyframes appear {

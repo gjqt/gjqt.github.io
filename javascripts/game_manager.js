@@ -145,8 +145,8 @@ GameManager.prototype.move = function (direction) {
           if (merged.value > maxscore)
             maxscore = merged.value;
 
-          // The mighty 131072 tile
-          if (merged.value === 131072) self.won = true;
+          // The mighty 65536 tile
+          if (merged.value === 65536) self.won = true;
         } else {
           self.moveTile(tile, positions.farthest);
         }
