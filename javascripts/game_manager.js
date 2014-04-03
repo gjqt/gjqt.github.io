@@ -63,7 +63,8 @@ GameManager.prototype.addStartTiles = function () {
 GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
     var ran = Math.random();
-    var value = 2;8953)
+    var value = 2;
+	if(ran < 0.8985)
 	{
 		value = 2;
 	}
