@@ -176,9 +176,10 @@ GameManager.prototype.move = function (direction) {
           // Update the score
           self.score += merged.value;
 
-		  if (merged.value > maxscore) {
+	  if (merged.value > maxscore) {
             maxscore = merged.value;
-		  }
+            localStorage.maxscore = maxscore;
+	  }
 		  
           // The mighty 2048 tile
           if (merged.value === 65536) self.won = true;
