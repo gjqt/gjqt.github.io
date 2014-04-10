@@ -10,6 +10,8 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
+  
+  maxscore = localStorage.maxscore;
 
   this.setup();
 }
