@@ -1,4 +1,4 @@
-var maxscore = 2;
+var maxValue = 2;
 
 function GameManager(size, InputManager, Actuator, StorageManager) {
   this.size           = size; // Size of the grid
@@ -11,15 +11,17 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
   
-  maxscore = localStorage.maxscore;
+  if (window.localStorage.hasOwnProperty("maxValue") == true) {
+	maxValue = window.localStorage.getItem("maxValue");
+  }
 
   this.setup();
 }
 
 // Restart the game
 GameManager.prototype.restart = function () {
-  maxscore = 2;
-  localStorage.maxscore = 2;
+  maxValue = 2;
+  window.localStorage.setItem("maxValue",2);
   this.storageManager.clearGameState();
   this.actuator.continueGame(); // Clear the game won/lost message
   this.setup(); 
@@ -78,7 +80,7 @@ GameManager.prototype.addRandomTile = function () {
 	else if(ran < 0.9985)
 		value = 4;
 	else
-		value = maxscore;
+		value = maxValue;
     
     var tile = new Tile(this.grid.randomAvailableCell(), value);
 
@@ -177,9 +179,9 @@ GameManager.prototype.move = function (direction) {
           // Update the score
           self.score += merged.value;
 
-	  if (merged.value > maxscore) {
-            maxscore = merged.value;
-            localStorage.maxscore = maxscore;
+	  if (merged.value > maxValue) {
+            maxValue = merged.value;
+            window.localStorage.setItem("maxValue", maxValue);
 	  }
 		  
           // The mighty 2048 tile
